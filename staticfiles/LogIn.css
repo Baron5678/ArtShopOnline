@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Saira&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e6e6ff;
+    font-family:'Kodchasan','Arial', sans-serif;
+  }
+
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 430px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+  }
+
+  .login-box h2 {
+    margin: 0 0 20px;
+    padding: 0;
+    color: #333;
+    text-align: center;
+  }
+
+  .user-box {
+    position: relative;
+  }
+
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #2f2020;
+    margin-bottom: 12px;
+    border: rgb(86, 141, 153);
+    border-radius: 5px;
+    background-color: #c3c3fe;
+    font-family:'Kodchasan','Arial', sans-serif;
+  }
+
+  .user-box label {
+    font-size: 16px;
+    color: #777;
+  }
+
+  .button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: rgb(126, 126, 192);
+    left: 50%;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .button:hover {
+    background: rgb(135, 135, 193);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193);
+  }
+
+  .forgot {
+    color: #777;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    transition: .5s;
+  }
+
+  .forgot:hover {
+    color: #15108a;
+  }
+
+  .signup {
+    color: #777;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    transition: .5s;
+    left: 50%;
+    transform: translateX(-25%);
+  }
+
+  .signup:hover,
+  .signup a:hover {
+    color: #15108a;
+  }

@@ -1,0 +1,46 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Cart</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>Desired Products</h1>#}
+{#    <section>#}
+{#        {% for product in desired_products %}#}
+{#                <a href="{% url 'product_details' product_id=product.id %}">#}
+{#                    <div class="product">#}
+{#                        <h2>{{ product.name }}</h2>#}
+{#                         <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>#}
+{#                    </div>#}
+{#                </a>#}
+{#                {% empty %}#}
+{#                    <p>No products found.</p>#}
+{#                {% endfor %}#}
+{#    </section>#}
+{#</body>#}
+{#</html>#}
+
+{% extends 'BaseHeader.html' %}
+{% load static %}
+{% block init %}
+    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
+    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
+    <title>{{ current_user.username }}</title>
+{% endblock  %}
+
+{% block content %}
+   <h1>Desired Products</h1>
+    <section>
+        {% for product in desired_products %}
+                <a href="{% url 'product_details' product_id=product.id %}">
+                    <div class="product">
+                        <h2>{{ product.name }}</h2>
+                         <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>
+                    </div>
+                </a>
+                {% empty %}
+                    <p>No products found.</p>
+                {% endfor %}
+    </section>
+{% endblock %}

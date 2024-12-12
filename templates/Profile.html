@@ -1,0 +1,56 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">#}
+{#    <title>{{ current_user.username }}</title>#}
+{#</head>#}
+{#<body>#}
+{#  <h1>{{ current_user.username }}</h1>#}
+{#  <section>#}
+{#      <img src="{{ current_account.avatar.url }}" alt="Avatar" height="200" width="200" />#}
+{#  </section>#}
+{#  <section>#}
+{#    <p>{{ current_account.user.email }}</p>#}
+{#    <p>{{ current_account.birthday }}</p>#}
+{#    <p>{{ current_account.bio }}</p>#}
+{#  </section>#}
+{#  <section>#}
+{#    {% for product in current_account.desired_products.all %}#}
+{#                <div class="product">#}
+{#                    <h2>{{ product.name }}</h2>#}
+{#                     <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>#}
+{#                    <button>Buy</button>#}
+{#                </div>#}
+{#                {% empty %}#}
+{#                    <p>No products found.</p>#}
+{#                {% endfor %}#}
+{#  </section>#}
+{#  <a href="{% url 'edit_account' acc_id=current_account.id %}">#}
+{#      <button>Edit Profile</button>#}
+{#  </a>#}
+{#</body>#}
+{#</html>#}
+
+{% extends 'BaseHeader.html' %}
+{% load static %}
+{% block init %}
+    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
+    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
+    <title>{{ current_user.username }}</title>
+{% endblock  %}
+
+{% block content %}
+      <h1>{{ current_user.username }}</h1>
+  <section>
+      <img src="{{ current_account.avatar.url }}" alt="Avatar" height="200" width="200" />
+  </section>
+  <section>
+    <p>{{ current_account.user.email }}</p>
+    <p>{{ current_account.birthday }}</p>
+    <article>{{ current_account.bio }}</article>
+  </section>
+  <a href="{% url 'edit_account' acc_id=current_account.id %}">
+      <button class="edit-btn">Edit Profile</button>
+  </a>
+{% endblock %}

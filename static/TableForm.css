@@ -1,0 +1,18 @@
+table {
+    border-collapse: separate; /* Required for border-spacing to work */
+    border-spacing: 0 10px; /* First value for horizontal (columns), second for vertical (rows) gaps */
+}
+
+/* Apply to table cells to increase padding and thus the gap between rows */
+td, th {
+    padding: 15px; /* Adjusts padding inside cells, effectively increasing row height */
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light gray for odd rows */
+}
+
+/* Style for even rows */
+tr:nth-child(even) {
+    background-color: #ddd; /* Slightly darker gray for even rows */
+}

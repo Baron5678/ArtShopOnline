@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block init %}
+{% endblock init %}
+</head>
+<body>
+<header>
+ <section class="banner">
+  <section class="logo">
+    <img src="{% static 'Images/banner.jpg' %}" alt="Logo"/>
+  </section>
+  <section class="search">
+    <form action="/search" method="GET">
+        <div class="search-field">
+            <input type="text" id="id_search" name="search" placeholder="Search"/>
+        </div>
+    </form>
+  </section>
+  <section class="user-info">
+     {% if is_auth %}
+      <p>{{ username }}<p>
+     <div class="dropdown">
+        <button class="dropbtn">
+            <img src="../static/Images/loggedIn.jpg" alt="Log">
+        </button>
+         <div class="dropdown-content">
+            <a href="{% url 'account' acc_id=acc_id %}">Profile</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">LOG OUT</button>
+            </form>
+        </div>
+     </div>
+      {% else %}
+         <form action="{% url 'login' %}" method="get">
+             <button type="submit" class="login-btn">LOG IN</button>
+         </form>
+      {% endif %}
+  </section>
+   </section>
+    <nav class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'products_set' %}">All Pictures</a>
+        {% if is_auth %}
+            <a href="{% url 'account' acc_id=acc_id %}">Profile</a>
+            <a href="{% url 'cart_view' acc_id=acc_id %}">Cart</a>
+        {% endif %}
+    </nav>
+</header>
+<main id="main-content">
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+     {% block end %}
+        <h3>Contact the Artist!</h3>
+        <p>Email: artist@example.com</p>
+        <p>Phone: +1234567890</p>
+        <address>Address: 123 Art Street, City, Country</address>
+        <p>Copyright © 2024 Art Store</p>
+    {% endblock %}
+
+</footer>
+
+</body>
+</html>

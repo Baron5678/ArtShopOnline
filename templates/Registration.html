@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Registration.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'validator.css' %}">
+    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
+    <script type="text/javascript" src="../static/validators.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+                <div id="UserError" class="error-message"></div>
+                <p>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+            </div>
+           <div class="input-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+               <div id="EmailError" class="error-message"></div>
+            </div>
+            <div class="input-group">
+                {{ form.password1.label }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+                <div id="PasswordError1" class="error-message"></div>
+                {{ form.password1.help_text }}
+            </div>
+            <div class="input-group">
+                {{ form.password2.label }}
+                {{ form.password2 }}
+                {{ form.password1.errors }}
+                <div id="PasswordError2" class="error-message"></div>
+            </div>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Log in</a></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Saira&display=swap');
+
+body { font-family: 'Kodchasan', Arial, sans-serif; }
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(91, 105, 178);
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo {
+     margin: 0;
+     padding: 0;
+}
+
+.logo img {
+    width: 260px;
+    height: 110px;
+    margin: 0;
+}
+
+.search {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.search-field {
+    margin-top: 20px;
+    margin-left: 300px;
+}
+.search-field input {
+    width: 600px; /* Or whatever width you prefer */
+    height: 30px;
+    padding: 10px;
+    background-color: #E6E6FA; /* Light blue background */
+    margin: 0;
+    border: none;
+    border-radius: 10px;
+}
+
+.search-field input::placeholder {
+    color: rgb(18, 9, 9); /* Or any color you want for the placeholder text */
+    opacity: 0.3;
+}
+
+.search-field input:focus {
+    outline: none; /* Removes the default focus outline */
+    background-color: #FFF; /* Changes the background to white when focused */
+  }
+
+.search-field input:focus::placeholder {
+    color: transparent; /* Makes the placeholder text transparent when focused */
+}
+
+.user-info {
+    margin-left: 300px;
+    margin-right: 0px;
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+}
+
+#log img {
+    position: relative;
+    width: 85px;
+    height: 95px;
+    margin-top: 7px;
+}
+
+#log img:hover {
+background: rgb(135, 135, 193);
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193);
+}
+
+
+#main-content {
+    background-color: #E6E6FA;
+}
+
+
+.box {
+    border-radius: 10px;
+    background: #fff2f2;
+    display: flex;
+    flex-direction: column;
+    width: 11vw;
+    height: 30vh;
+    align-items: center;
+    overflow: auto;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.raw-images ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+
+.raw-images li {
+    margin: 30px; /* Add some space around each item */
+    flex-basis: calc(33.333% - 20px); /* Example for three items per row, adjust space according to margin */
+}
+
+.product {
+    text-align: center; /* Center the product info */
+}
+
+.product img {
+    width: 100%; /* Make image responsive */
+    max-width: 150px; /* Maximum image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+footer {
+    height: 20px;
+}
+
+/* Container for the dropdown */
+.dropdown {
+    position: relative;
+    display: block;
+    right: -15px ;
+}
+
+/* Dropdown button */
+.dropbtn {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(91, 105, 178);
+}
+
+.dropbtn img {
+    position: relative;
+    width: 85px;
+    height: 95px;
+    margin-top: 7px;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change dropdown button on hover */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.login-btn {
+    position: relative;
+    display: inline-block;
+    transform: translateY(25%);
+}
+
+  /* Basic styling for navigation bar */
+.navbar {
+    grid-row: 2;
+  position: relative; /* Set the navbar to fixed position */
+  bottom: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+}
+
+.navbar a {
+  float: left; /* Float links side by side */
+  display: block; /* Change the display to block */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 16px; /* Add padding */
+  text-decoration: none; /* No underline on links */
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #ddd; /* Light grey background on hover */
+  color: black; /* Black text color on hover */
+}
+
+.banner {
+    grid-row: 1;
+    display: flex;
+}
+
+.location-category {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.location-info {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.location-offers{
+    grid-column: 2;
+    grid-row: span 2;
+}
+
+.location-cart {
+    grid-column: 3;
+    grid-row: span 3;
+}
+
+.box-prods {
+   height: 61vh;
+   width: 74vw;
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(126, 126, 192);
+    color: white;
+    border-radius: 5px;
+    transition: .5s;
+    overflow: hidden;
+    letter-spacing: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Kodchasan', Arial, sans-serif;
+}
+
+.edit-btn:hover {
+    background: rgb(135, 135, 193);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193),
+                0 0 7px rgb(135, 135, 193);
+}

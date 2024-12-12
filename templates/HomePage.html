@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/HomePage.css"/>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'HomePage.css' %}">
+<link rel="icon" href="{% static 'Images/icons8-shop-local-16.png' %}">
+<title>Art Store Homepage</title>
+</head>
+<body>
+<header>
+    <section class="banner">
+  <section class="logo">
+    <img src="{% static 'Images/banner.jpg' %}" alt="Logo"/>
+  </section>
+  <section class="search">
+    <form action="/search" method="GET">
+        <div class="search-field">
+            <input type="text" id="id_search" name="search" placeholder="Search"/>
+        </div>
+    </form>
+  </section>
+  <section class="user-info">
+     {% if is_auth %}
+      <p>{{ username }}<p>
+     <div class="dropdown">
+        <button class="dropbtn">
+            <img src="../static/Images/loggedIn.jpg" alt="Log">
+        </button>
+         <div class="dropdown-content">
+            <a href="{% url 'account' acc_id=acc_id %}">Profile</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">LOG OUT</button>
+            </form>
+        </div>
+     </div>
+      {% else %}
+         <form action="{% url 'login' %}" method="get">
+             <button type="submit" class="login-btn">LOG IN</button>
+         </form>
+      {% endif %}
+  </section>
+   </section>
+    <nav class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'products_set' %}">All Pictures</a>
+        {% if is_auth %}
+            <a href="{% url 'account' acc_id=acc_id %}">Profile</a>
+        {% endif %}
+    </nav>
+</header>
+<main id="main-content">
+        <section id="categories" class="box location-category">
+            <h3>Categories</h3>
+            <form method="get">
+                <div>
+                    <label>Type of paint:</label>
+                    <select name="type_of_paint">
+                        <option value="">Any</option>
+                        <option value="Oils">Oils</option>
+                        <option value="Acrylic">Acrylic</option>
+                        <option value="Watercolor">Watercolor</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Material</label>
+                    <select name="material">
+                        <option value="">Any</option>
+                        <option value="Canvas">Canvas</option>
+                        <option value="Paper">Paper</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Genre:</label>
+                    <select name="genre">
+                        <option value="">Any</option>
+                        <option value="Landscape">Landscape</option>
+                        <option value="Portrait">Portrait</option>
+                        <option value="Illustration">Illustration</option>
+                        <option value="Graphics">Graphics</option>
+                        <option value="Still life">Still life</option>
+                    </select>
+                </div>
+                <button type="submit">Filter</button>
+            </form>
+        </section>
+        <section class="box location-info">
+            <article>
+                If you want to have purchase unique art work.<br/>
+                Contact with artist
+            </article>
+        </section>
+        <section id="prods" class="box location-offers box-prods">
+            <div class="raw-images">
+            <ul>
+                {% for product in products %}
+                <li>
+                    <a href="{% url 'product_details' product_id=product.id %}">
+                    <div class="product">
+                        <h2>{{ product.name }}</h2>
+                         <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>
+                    </div>
+                </a>
+                </li>
+                {% empty %}
+                    <p>No products found.</p>
+                {% endfor %}
+            </ul>
+             </div>
+        </section>
+        <section class="box location-cart">
+            {% if is_auth %}
+
+            {% else %}
+                <section>
+                  <a href="{% url 'login' %}">
+                      Log in
+                  </a>
+                 or
+                <section>
+                    <a href="{% url 'register' %}">
+                      Log in
+                  </a>
+                </section>
+                </section>
+            {% endif %}
+        </section>
+</main>
+<footer>
+    <h3>Contact the Artist!</h3>
+    <p>Email: artist@example.com</p>
+    <p>Phone: +1234567890</p>
+    <address>Address: 123 Art Street, City, Country</address>
+    <p>Copyright © 2024 Art Store</p>
+</footer>
+</body>
+</html>

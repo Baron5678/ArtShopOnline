@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
+    <link rel="stylesheet" href="{% static 'validator.css' %}">
+    <link rel="stylesheet" href="{% static 'TableForm.css' %}">
+    <script type="text/javascript" src="{% static 'validators.js' %}"></script>
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+    {% csrf_token %}
+        <fieldset>
+            <legend>Editing profile</legend>
+        <table>
+            <tr>
+                <th>User Info</th>
+                <th>Fill User Info</th>
+            </tr>
+            <tr>
+                    <td>{{ user_form.username.label_tag }}</td>
+                    <td>
+                        {{ user_form.username}}
+                        {{user_form.username.errors|striptags }}
+                        <div id="UserError" class="error-message"></div>
+                    </td>
+            </tr>
+            <tr>
+                <td> {{ user_form.email.label_tag }}</td>
+                <td>
+                    {{ user_form.email }}
+                    {{user_form.email.errors|striptags }}
+                    <div id="EmailError" class="error-message"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ account_form.bio.label_tag }}</td>
+                <td>{{ account_form.bio}}</td>
+            </tr>
+            <tr>
+                <td>{{ account_form.birthday.label_tag }}</td>
+                <td>
+                    {{ account_form.birthday}}
+                    {{user_form.birthday.errors|striptags }}
+                    <div id="BirthdayInputError" class="error-message"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Save changes</button>
+                </td>
+                <td>
+                    <a href="{% url 'home' %}">
+                        <button>Home</button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+            </fieldset>
+</form>
+</body>
+</html>

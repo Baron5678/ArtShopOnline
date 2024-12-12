@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Saira&display=swap');
+
+body { font-family: 'Kodchasan', Arial, sans-serif; }
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(91, 105, 178);
+    display: flex;
+}
+
+.logo {
+     margin: 0;
+     padding: 0;
+}
+
+.logo img {
+    width: 260px;
+    height: 110px;
+    margin: 0;
+}
+
+.search {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.search-field {
+    margin-top: 20px;
+    margin-left: 280px;
+}
+.search-field input {
+    width: 600px; /* Or whatever width you prefer */
+    height: 30px;
+    padding: 10px;
+    border: none;
+    background-color: #E6E6FA; /* Light blue background */
+    margin: 0;
+    border: none;
+    border-radius: 10px;
+}
+
+.search-field input::placeholder {
+    color: rgb(18, 9, 9); /* Or any color you want for the placeholder text */
+    opacity: 0.3;
+}
+
+.search-field input:focus {
+    outline: none; /* Removes the default focus outline */
+    background-color: #FFF; /* Changes the background to white when focused */
+  }
+
+.search-field input:focus::placeholder {
+    color: transparent; /* Makes the placeholder text transparent when focused */
+}
+
+.user-info {
+  margin-left: 370px;
+  margin-top: 27px;
+}
+
+#main-content {
+    background-color: #E6E6FA;
+}
