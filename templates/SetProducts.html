@@ -1,0 +1,16 @@
+{% extends 'BaseHeader.html' %}
+{% load static %}
+{% block init %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
+    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
+    <script type="text/javascript" src="{% static 'product_set.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <section class="layout">
+        <h1 class="location-category">Products</h1>
+        <div id="products" class="location-info box box-prods wrapper"></div>
+    </section>
+{% endblock %}

@@ -49,7 +49,7 @@ class LoginForm(AuthenticationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio', 'birthday', 'desired_products']
+        fields = ['bio', 'birthday', 'cart']
 
 
 class CustomUserChangeForm(UserChangeForm):

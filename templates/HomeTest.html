@@ -1,0 +1,88 @@
+<!-- product_details.html -->
+{% extends 'BaseHeader.html' %}
+{% load static %}
+{% block init %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
+    <link rel="icon" href="{% static 'Images/icons8-shop-local-16.png' %}">
+    <title>Art Store Homepage</title>
+{% endblock  %}
+{% block content %}
+    <section id="categories" class="box location-category">
+            <h3>Categories</h3>
+            <form method="get">
+                <div>
+                    <label>Type of paint:</label>
+                    <select name="type_of_paint">
+                        <option value="">Any</option>
+                        <option value="Oils">Oils</option>
+                        <option value="Acrylic">Acrylic</option>
+                        <option value="Watercolor">Watercolor</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Material</label>
+                    <select name="material">
+                        <option value="">Any</option>
+                        <option value="Canvas">Canvas</option>
+                        <option value="Paper">Paper</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Genre:</label>
+                    <select name="genre">
+                        <option value="">Any</option>
+                        <option value="Landscape">Landscape</option>
+                        <option value="Portrait">Portrait</option>
+                        <option value="Illustration">Illustration</option>
+                        <option value="Graphics">Graphics</option>
+                        <option value="Still life">Still life</option>
+                    </select>
+                </div>
+                <button type="submit">Filter</button>
+            </form>
+        </section>
+        <section class="box location-info">
+            <article>
+                If you want to have purchase unique art work.<br/>
+                Contact with artist
+            </article>
+        </section>
+        <section id="prods" class="box location-offers box-prods">
+            <div class="raw-images">
+            <ul>
+                {% for product in products %}
+                <li>
+                    <a href="{% url 'product_details' product_id=product.id %}">
+                    <div class="product">
+                        <h2>{{ product.name }}</h2>
+                         <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>
+                    </div>
+                </a>
+                </li>
+                {% empty %}
+                    <p>No products found.</p>
+                {% endfor %}
+            </ul>
+             </div>
+        </section>
+        <section class="box location-cart">
+            {% if is_auth %}
+
+            {% else %}
+                <section>
+                  <a href="{% url 'login' %}">
+                      Log in
+                  </a>
+                 or
+                <section>
+                    <a href="{% url 'register' %}">
+                      Log in
+                  </a>
+                </section>
+                </section>
+            {% endif %}
+        </section>
+{% endblock %}
+
