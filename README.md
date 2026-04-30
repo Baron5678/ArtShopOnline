@@ -18,7 +18,7 @@ Built with **Django**, this project demonstrates full-stack web development incl
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 - **Backend:** Django (Python)  
 - **Frontend:** HTML, CSS, JavaScript  
