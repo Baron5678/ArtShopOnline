@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  block meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock meta %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'Banner.css' %}">
+    <link rel="stylesheet" href="{% static 'Button.css' %}">
+    <link rel="stylesheet" href="{% static 'DropDown.css' %}">
+    <link rel="stylesheet" href="{% static 'ContactInfo.css' %}">
+    <link rel="icon" href="{% static 'images/icons8-shop-local-16.png' %}">
+    {% endblock link %}
+    {% block title %}
+    <title>Art Store Homepage</title>
+    {% endblock title %}
+</head>
+<body>
+<header>
+    <section class="banner">
+        <section class="logo">
+            <img src="{% static 'images/banner.jpg' %}" alt="Logo"/>
+        </section>
+        <form class="search" action="/search" method="GET">
+            <div class="search-field">
+                <label for="id_search"></label>
+                <input type="text" id="id_search" name="search" placeholder="Search"/>
+            </div>
+        </form>
+        <section class="user-info">
+            {% if is_auth and not is_admin %}
+                <div class="dropdown">
+                    <button class="drop-button">
+                        <img src="{% static 'images/loggedIn.jpg' %}" alt="Log">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'profile' prof_id=prof_id %}">Profile</a>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="button">LOG OUT</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="username-banner">{{ username }}</div>
+            {% else %}
+                <form action="{% url 'login' %}" method="get">
+                    <button class="button" type="submit">LOG IN</button>
+                </form>
+            {% endif %}
+        </section>
+    </section>
+    <nav class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        {% if is_auth and not is_admin %}
+            <a href="{% url 'profile' prof_id=prof_id %}">Profile</a>
+        {% endif %}
+    </nav>
+</header>
+<main>
+    {% block content %}
+    {% endblock content%}
+</main>
+<footer>
+     {% block end %}
+        <h3>Contact the Artist!</h3>
+        <p>Email: artist@example.com</p>
+        <p>Phone: +1234567890</p>
+        <address>Address: 123 Art Street, City, Country</address>
+        <p>Copyright © 2024 Art Store</p>
+    {% endblock %}
+</footer>
+</body>
+</html>

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'Base.html' %}
+{% load static %}
+{% block link %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'EditProfile.css' %}">
+    <link rel="stylesheet" href="{% static 'Box.css' %}">
+{% endblock link %}
+{% block content %}
     <h1>{{ current_product.name }}</h1>
     <section>
         <img src="{{ current_product.image.url }}" alt="product_image" width="200" height="200">
@@ -16,5 +16,4 @@
         <p>{{ current_product.material }}</p>
         <p>{{ current_product.paint_type}}</p>
     </section>
-</body>
-</html>
+{% endblock content %}

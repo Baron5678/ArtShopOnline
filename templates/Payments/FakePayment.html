@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .total {
+            font-size: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .fake-input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .pay-btn {
+            background-color: #635bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 48%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background-color: #ccc;
+            border: none;
+            padding: 10px;
+            width: 48%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pay-btn:hover {
+            background-color: #4b45c6;
+        }
+
+        .cancel-btn:hover {
+            background-color: #999;
+        }
+
+        .label {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-box">
+    <h2>Fake Stripe Checkout</h2>
+
+    <div class="total">
+        Total: <strong>{{ order.total_price }} $</strong>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="card-number" class="label">Card Number</label>
+        <input id="card-number" class="fake-input" value="4242 4242 4242 4242" disabled>
+
+        <label for="exp" class="label">Expiry Date</label>
+        <input id="exp" class="fake-input" value="12/34" disabled>
+
+        <label for="cvv" class="label">CVV</label>
+        <input id="cvv" class="fake-input" value="123" disabled>
+
+        <label for="type-card" class="label">Card Type</label>
+        <select id="type-card" class="fake-input" disabled>
+            <option>Visa</option>
+            <option>MasterCard</option>
+            <option>American Express</option>
+        </select>
+
+        <div class="buttons">
+            <button class="pay-btn" name="action" value="pay">Pay</button>
+            <button class="cancel-btn" name="action" value="cancel">Cancel</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

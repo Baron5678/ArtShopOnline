@@ -1,0 +1,25 @@
+<section class="box" style="grid-column: 1 /span 2;">
+    <h2>Receipts</h2>
+    <h3>Thank you for your purchase! Here is your receipts</h3>
+    <ul style="display: flex; flex-direction: row">
+        {% for receipt in receipts %}
+            <li class="receipt-box">
+                <h3>Receipt #{{receipt.id}}</h3>
+                <ul class="receipt-items">
+                    {% for item in receipt.order.items.all %}
+                        <li style="margin: 10px">
+                            <span><b>{{ item.product.name }}</b></span><br/>
+                            <span>Amount: {{ item.amount }}</span><br/>
+                            <span>Price: {{ item.total_price }} $</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p>Pay Time: {{ receipt.order.paid_at }}</p>
+                <p>Total: {{ receipt.total_price }} $</p>
+                <form action="{% url 'download-receipt-xml' receipt_id=receipt.id %}" method="get">
+                    <button type="submit" class="button">Download</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

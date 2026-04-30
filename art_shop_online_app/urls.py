@@ -13,9 +13,16 @@ urlpatterns = [
     path('profile/<int:prof_id>', views.profile, name='profile'),
     path('profile/<int:prof_id>/edit', views.edit_profile, name='edit_profile'),
     path('products/', views.products_set, name='products_set'),
+    path('checkout/', views.start_checkout, name='start_checkout'),
     path('products/json/', views.products_set_json, name='products_set_json'),
     path('products/<int:product_id>', views.product_view, name='product_details'),
     path('products/<int:product_id>/add-to-cart', views.add_to_cart, name='add_to_cart'),
+    path('products/<int:product_id>/remove-from-cart', views.remove_from_cart, name='remove_from_cart'),
+    path ('products/<int:product_id>/comment', views.send_comment, name='send_comment'),
+    path("payment/<int:order_id>/", views.fake_payment, name="fake_payment"),
+    path("payment/<int:order_id>/success", views.payment_success, name="payment_success"),
+    path("payment/<int:order_id>/cancel", views.payment_cancel, name="payment_cancel"),
+    path("receipts/<int:receipt_id>/download/", views.download_receipt_xml, name="download-receipt-xml")
 ]
 
 if settings.DEBUG:

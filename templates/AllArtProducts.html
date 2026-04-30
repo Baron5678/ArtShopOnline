@@ -1,0 +1,13 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block link %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'EditProfile.css' %}">
+    <link rel="stylesheet" href="{% static 'Box.css' %}">
+{% endblock link %}
+{% block content %}
+    <section style="height: 100%">
+        <h1 style="text-align: center">Masterpieces</h1>
+        {% include 'Components/ArtProducts.html' %}
+    </section>
+{% endblock content%}

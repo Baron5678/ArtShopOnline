@@ -1,0 +1,26 @@
+<section id="prods" class="product-box">
+        <div>
+            <ul>
+                {% for product in art_products %}
+                        <li>
+                            <div class="product">
+                                <a href="{% url 'product_details' product_id=product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}"/>
+                                    <h2 style="margin: 0">{{ product.name }}</h2>
+                                    <span style="font-size: 20px">{{ product.price }} $ per copy</span><br/>
+                                    <span style="font-size: 20px">Copies: {{ product.copies }}</span>
+                                </a>
+                                <button class="button add-to-cart"
+                                        style="width: 180px"
+                                        data-product-id="{{ product.id }}"
+                                        {% if not is_auth and is_admin %} disabled {% endif %}>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </li>
+                {% empty %}
+                    <p>No products found.</p>
+                {% endfor %}
+            </ul>
+        </div>
+</section>

@@ -67,3 +67,21 @@ class CustomUserChangeForm(UserChangeForm):
             )
         )
 
+class PaymentInfoForm(forms.Form):
+    name_on_card = forms.CharField(max_length=100)
+    card_number = forms.CharField(max_length=16, validators=[
+        RegexValidator(
+            regex=r'^\d{16}$',
+            message='Card number must be 16 digits',
+            code='invalid_card_number'
+        )
+    ])
+    expiration_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    cvv = forms.CharField(max_length=4, validators=[
+        RegexValidator(
+            regex=r'^\d{3,4}$',
+            message='CVV must be 3 or 4 digits',
+            code='invalid_cvv'
+        )
+    ])
+    billing_address = forms.CharField(widget=forms.Textarea)

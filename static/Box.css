@@ -1,0 +1,130 @@
+.box {
+    margin: 10px 10px;
+    border-radius: 10px;
+    background: #fff2f2;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    align-items: center;
+    overflow: auto;
+}
+
+.profile-box {
+    margin: 10px 10px;
+    border-radius: 10px;
+    background: #fff2f2;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-rows: auto auto auto auto auto 1fr auto;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+
+.product-box {
+    grid-column: 2;
+    margin: 10px 10px;
+    border-radius: 10px;
+    background: #fff2f2;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    align-items: normal;
+    overflow: auto;
+}
+
+.bio-box {
+    margin: 10px 10px 10px 0;
+    border-radius: 10px;
+    background: #ccccea;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+.edit-profile-box {
+    margin: 10px 10px;
+    border-radius: 10px;
+    background: #fff2f2;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: auto;
+    align-items: center;
+    overflow: auto;
+}
+
+.receipt-box {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgb(91, 105, 178);
+
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    height: 450px;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.receipt-items {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    max-height: 200px;
+    overflow-y: auto;
+
+    padding: 0;
+    margin: 10px 0;
+}
+
+
+.product {
+    text-align: center;
+    margin: 15px;
+    background-color: rgb(91, 105, 178);
+    width: 200px;
+    height: 345px;
+    border-radius: 10px;
+}
+
+.product img {
+    width: 150px;
+    height: 165px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-radius: 10px;
+}
+
+.product-box a {
+    text-decoration: none;
+    color: black;
+}
+
+.product-box li {
+    display: flex;
+    justify-content: center;
+}
+
+.product-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}

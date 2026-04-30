@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Saira&display=swap');
+
+html, body {
+    font-family: 'Kodchasan', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: auto;
+    background-color: #E6E6FA;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.product-details-layout article, .product-details-layout p {
+    background: #c3c3fe;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.product-details-layout img {
+    border: #c3c3fe solid 10px;
+    border-radius: 10px;
+}
+
+h4 {
+    margin: 20px;
+}

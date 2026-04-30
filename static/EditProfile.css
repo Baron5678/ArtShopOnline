@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Saira&display=swap');
+
+html, body {
+    font-family: 'Kodchasan', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: grid;
+    height: 60vh;
+    width: 100%;
+    background-color: #E6E6FA;
+}
+
+fieldset {
+    border-radius: 10px;
+    border-color: #ccccea;
+    background: #ccccea;
+    margin: 10px;
+    padding: 20px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+    width: 90vw;
+}
+
+td, th, tr {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+td input {
+    width: 100%;
+    padding-left: 15px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #E6E6FA;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Kodchasan', 'Arial', sans-serif;
+}
+
+td textarea {
+    width: 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
+    background-color: #E6E6FA;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Kodchasan', 'Arial', sans-serif;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+.submit-edit-profile {
+    display: flex;
+    justify-content: center;
+}

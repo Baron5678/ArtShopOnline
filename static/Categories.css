@@ -1,0 +1,13 @@
+.categories-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-layout label {
+    margin: 10px;
+}
+
+.category-group {
+    display: flex;
+    flex-direction: column;
+}

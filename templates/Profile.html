@@ -1,56 +1,33 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <link rel="icon" href="../static/Images/icons8-shop-local-16.png">#}
-{#    <title>{{ current_user.username }}</title>#}
-{#</head>#}
-{#<body>#}
-{#  <h1>{{ current_user.username }}</h1>#}
-{#  <section>#}
-{#      <img src="{{ current_account.avatar.url }}" alt="Avatar" height="200" width="200" />#}
-{#  </section>#}
-{#  <section>#}
-{#    <p>{{ current_account.user.email }}</p>#}
-{#    <p>{{ current_account.birthday }}</p>#}
-{#    <p>{{ current_account.bio }}</p>#}
-{#  </section>#}
-{#  <section>#}
-{#    {% for product in current_account.desired_products.all %}#}
-{#                <div class="product">#}
-{#                    <h2>{{ product.name }}</h2>#}
-{#                     <img src="{{ product.image.url }}" alt="some man" width="150" height="150"/>#}
-{#                    <button>Buy</button>#}
-{#                </div>#}
-{#                {% empty %}#}
-{#                    <p>No products found.</p>#}
-{#                {% endfor %}#}
-{#  </section>#}
-{#  <a href="{% url 'edit_account' acc_id=current_account.id %}">#}
-{#      <button>Edit Profile</button>#}
-{#  </a>#}
-{#</body>#}
-{#</html>#}
-
-{% extends 'BaseHeader.html' %}
+{% extends 'Base.html' %}
 {% load static %}
-{% block init %}
-    <link rel="icon" href="../static/images/icons8-shop-local-16.png">
-    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
-    <title>{{ current_user.username }}</title>
-{% endblock  %}
+{% block link %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'Profile.css' %}">
+    <link rel="stylesheet" href="{% static 'Box.css' %}">
+    <link rel="stylesheet" href="{% static 'ProductCart.css' %}">
+    <script src="{% static 'CartOperations.js' %}" defer></script>
+{% endblock link %}
+{% block title %}
+    <title>{{ username }}</title>
+{% endblock title %}
 
 {% block content %}
-      <h1>{{ current_user.username }}</h1>
-  <section>
-      <img src="{{ current_profile.avatar.url }}" alt="Avatar" height="200" width="200" />
-  </section>
-  <section>
-    <p>{{ current_profile.user.email }}</p>
-    <p>{{ current_profile.birthday }}</p>
-    <article>{{ current_profile.bio }}</article>
-  </section>
-  <a href="{% url 'edit_profile' prof_id=current_profile.id %}">
-      <button class="edit-btn">Edit Profile</button>
-  </a>
+    <section style="grid-column: 1; grid-row: 1;" class="profile-box">
+        <img class="profile-avatar" style="grid-row: 1 / span 8;" src="{{ current_profile.avatar.url }}" alt="Avatar" height="200" width="200" />
+        <span style="grid-column: 2; grid-row: 2">Username:</span>
+        <span style="grid-column: 3; grid-row: 2"><b>{{ username }}</b></span>
+        <span style="grid-column: 2; grid-row: 3">Email:</span>
+        <span style="grid-column: 3; grid-row: 3">{{ current_profile.user.email }}</span>
+        <span style="grid-column: 2; grid-row: 4">Date of Birth:</span>
+        <span style="grid-column: 3; grid-row: 4">{{ current_profile.birthday }}</span>
+        <span style="grid-column: 2; grid-row: 5">Bio:</span>
+        <article class="bio-box" style="grid-column: 2 / span 2; grid-row: 6">{{ current_profile.bio }}</article>
+        <div style="grid-column: 2 / span 3; grid-row: 7; display: flex; justify-content: center">
+            <a  href="{% url 'edit_profile' prof_id=current_profile.id %}">
+                <button class="button">Edit Profile</button>
+            </a>
+        </div>
+    </section>
+    {% include 'Components/Cart.html' %}
+    {% include 'Components/Receipt.html' %}
 {% endblock %}

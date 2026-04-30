@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Cancelled</title>
+    <link rel="stylesheet" href="{% static 'Button.css' %}">
+    <link rel="stylesheet" href="{% static 'Box.css' %}">
+    <link rel="stylesheet" href="{% static 'HomePage.css' %}">
+</head>
+<body>
+    <section class="box">
+    <h2>Payment Cancelled</h2>
+    <p>Your payment was cancelled.</p>
+
+    <form action="{% url 'home' %}" method="get">
+        <button class="button" type="submit">Return to Home</button>
+    </form>
+    </section>
+</body>
+</html>

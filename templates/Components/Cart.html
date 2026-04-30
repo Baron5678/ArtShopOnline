@@ -1,0 +1,47 @@
+ <section id="cart" class="box">
+        <span style="display:flex; justify-content: center; font-size: 24px">Cart</span>
+        {% if is_auth %}
+            <section class="cart-content">
+                <ul id="cart-list" class="list-style">
+                    {% for item in cart_items %}
+                        <li>
+                            <div class="product-cart cart-content">
+                                <a style=" align-self: center; grid-row: 1 / span 3" href="{% url 'product_details' product_id=item.product.id %}">
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"/>
+                                </a>
+                                <h2 style="margin: 0; grid-column: 2; grid-row: 1">{{ item.product.name }}</h2>
+                                <span class="price" style="grid-column: 2; grid-row: 2">Total: {{ item.total_price }} $</span>
+                                <span class="amount" style="grid-column: 2; grid-row: 3">Amount: {{ item.quantity }} </span>
+                                <button class="button remove-for-event"
+                                        data-product-id="{{ item.product.id }}"
+                                        style="width: 180px; grid-column: 1 / span 3">
+                                    Remove
+                                </button>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li>No products</li>
+                    {% endfor %}
+                </ul>
+                </section>
+                <p class="payment-summary">To pay: {{ total_cart_price }} $</p>
+                <p class="payment-summary">Total items: {{ total_quantity }}</p>
+            <form action="{% url 'start_checkout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button">Purchase</button>
+            </form>
+        {% else %}
+            <section>
+              <form action="{% url 'login' %}" method="get">
+                    <button class="button" type="submit">LOG IN</button>
+                </form>
+                <span style="display:flex; justify-content: center;"> or </span>
+                <section>
+                   <form action="{% url 'register' %}" method="get">
+                       {% csrf_token %}
+                       <button class="button" type="submit">SIGN UP</button>
+                </form>
+                </section>
+            </section>
+        {% endif %}
+    </section>
