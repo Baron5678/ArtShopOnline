@@ -31,3 +31,14 @@ Built with **Django**, this project demonstrates full-stack web development incl
 ## Current Status
 
 Product filtering functionality is currently under development.
+
+1. git clone https://github.com/your-username/art-marketplace.git
+2. cd art-marketplace
+3. python -m venv venv 
+4. On Windows:
+   venv\Scripts\activate
+   On Unix or MacOS:
+   source venv/bin/activate
+5. pip install -r requirements.txt
+6. python manage.py migrate
+7. python manage.py runserver
